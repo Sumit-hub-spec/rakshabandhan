@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Raksha Bandhan — For My Sister ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;font-family:Georgia,'Times New Roman',serif}
+body{background:#15100f;overflow-x:hidden;color:#8e2430}
+.page{display:none;min-height:100vh;padding:28px 18px;align-items:center;justify-content:center;background:#fff7ed;position:relative;overflow:hidden}
+.page.active{display:flex;animation:pageIn .65s ease both}
+@keyframes pageIn{from{opacity:0;transform:scale(.96) translateY(18px)}to{opacity:1;transform:none}}
+/* red/cream gingham border seen in the reference video */
+.page:before{content:"";position:absolute;inset:0;pointer-events:none;background:
+linear-gradient(90deg,rgba(186,48,55,.12) 50%,transparent 50%) 0 0/22px 22px,
+linear-gradient(rgba(186,48,55,.12) 50%,transparent 50%) 0 0/22px 22px;opacity:.9}
+.card{width:min(760px,100%);min-height:620px;position:relative;z-index:2;background:#fffdf8;border:5px solid #d95b4e;border-radius:22px;padding:48px 34px 40px;box-shadow:0 18px 50px rgba(80,35,25,.2);text-align:center;overflow:hidden}
+.card:after{content:"";position:absolute;inset:11px;border:2px solid #edb2a7;border-radius:15px;pointer-events:none}
+.corner{position:absolute;z-index:0;font-size:42px;opacity:.85}.c1{left:18px;top:15px}.c2{right:18px;top:15px}.c3{left:18px;bottom:15px}.c4{right:18px;bottom:15px}
+.inner{position:relative;z-index:3}
+h1{font-size:clamp(38px,8vw,70px);line-height:1.02;color:#a92737;margin-bottom:22px;text-shadow:1px 1px 0 #f3c1a8}
+h2{font-size:clamp(30px,6vw,48px);color:#a92737;margin-bottom:22px}
+p{font-size:18px;line-height:1.7;color:#6b4a48}
+.script{font-family:'Brush Script MT','Segoe Script',cursive;font-weight:700}
+.btn{border:0;border-radius:40px;padding:13px 28px;margin:20px 8px 0;font-weight:800;font-size:17px;cursor:pointer;transition:.25s;box-shadow:0 6px 0 #7f202c}.btn:hover{transform:translateY(-4px) rotate(-2deg)}.yes{background:#bd3347;color:#fff}.no{background:#cf4650;color:#fff}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #7f202c}
+.shin{width:min(190px,42vw);height:190px;object-fit:contain;display:block;margin:5px auto 18px;filter:drop-shadow(0 10px 5px rgba(0,0,0,.16));animation:charIn .9s cubic-bezier(.2,.8,.2,1.3) both,float 2.7s ease-in-out infinite}
+@keyframes charIn{from{opacity:0;transform:translateY(70px) rotate(-12deg) scale(.65)}60%{transform:translateY(-12px) rotate(5deg) scale(1.06)}to{opacity:1;transform:translateY(0) rotate(0) scale(1)}}
+@keyframes float{0%,100%{margin-top:5px}50%{margin-top:-8px}}
+.photo{width:230px;height:230px;object-fit:cover;border:8px solid #fff;box-shadow:0 12px 28px rgba(0,0,0,.18);transform:rotate(-3deg);margin:12px auto 24px;display:block}
+/* gifts */
+.gifts{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:36px 0}.gift{width:125px;height:110px;position:relative;cursor:pointer;animation:bob 2s ease-in-out infinite}.gift:nth-child(2){animation-delay:.2s}.gift:nth-child(3){animation-delay:.4s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.box{position:absolute;bottom:0;left:5%;width:90%;height:75px;background:#cf4350;border-radius:6px;box-shadow:0 10px 15px rgba(120,30,30,.2)}.lid{position:absolute;z-index:2;top:24px;left:0;width:100%;height:23px;background:#e75e68;border-radius:5px}.ribbon-v{position:absolute;z-index:3;left:43%;top:24px;width:16%;height:75px;background:#f6cf48}.bow{position:absolute;z-index:4;top:-2px;left:31%;font-size:45px}.gift:hover{animation:shake .5s ease}.gift:active .box{transform:translateY(8px)}
+@keyframes shake{25%{transform:rotate(-8deg) scale(1.08)}75%{transform:rotate(8deg) scale(1.08)}}
+/* award */
+.award{border:8px double #c99a32;background:#fffbed}.medal{font-size:68px;animation:spin 1.1s ease}.award-name{display:inline-block;font-size:clamp(32px,7vw,52px);font-weight:700;color:#a92737;border-bottom:2px solid #c99a32;padding:0 25px 10px;margin:18px 0 25px}
+@keyframes spin{from{transform:scale(0) rotate(-180deg)}to{transform:scale(1) rotate(0)}}
+/* memories — stable card rotation + properly attached pins */
+.rope{height:3px;background:#8c4b42;position:absolute;left:3%;right:3%;top:18px;transform:rotate(-2deg);z-index:1}
+.memories{position:relative;margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.memory{position:relative;background:#fff;padding:7px;box-shadow:0 7px 18px rgba(0,0,0,.16);animation:memoryDrop .75s ease both;transform:rotate(var(--memory-rotate));transform-origin:50% 0}
+.memory:nth-child(1){--memory-rotate:-5deg}
+.memory:nth-child(2){--memory-rotate:3deg;animation-delay:.12s}
+.memory:nth-child(3){--memory-rotate:-2deg;animation-delay:.24s}
+.memory:nth-child(4){--memory-rotate:5deg;animation-delay:.36s}
+.memory img{width:100%;height:165px;object-fit:cover;display:block}
+.pin{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:25px;line-height:1;z-index:5;filter:drop-shadow(0 2px 1px rgba(0,0,0,.18));pointer-events:none}
+@keyframes memoryDrop{from{opacity:0;transform:translateY(-70px) rotate(var(--memory-rotate))}to{opacity:1;transform:translateY(0) rotate(var(--memory-rotate))}}
+
+/* you are my — centered Shinchan with balanced surrounding reasons */
+.reasons{
+  position:relative;
+  min-height:430px;
+  margin:20px auto 0;
+  width:100%;
+  max-width:720px;
+}
+.reasons .shin{
+  position:absolute;
+  left:50%;
+  top:105px;
+  width:190px;
+  height:190px;
+  margin:0 0 0 -95px;
+  z-index:3;
+  animation:shinReasonFloat 2.8s ease-in-out infinite;
+}
+.reason{
+  position:absolute;
+  z-index:4;
+  background:#fff;
+  border:2px solid #edb2a7;
+  border-radius:30px;
+  padding:9px 16px;
+  font-family:'Comic Sans MS',cursive;
+  font-weight:700;
+  color:#9b2c3d;
+  box-shadow:0 6px 15px rgba(100,40,40,.12);
+  white-space:nowrap;
+  animation:reasonFloat 2.8s ease-in-out infinite;
+}
+.r1{left:2%;top:5%}
+.r2{right:2%;top:10%;animation-delay:-.15s}
+.r3{left:0;top:43%;animation-delay:-.30s}
+.r4{right:0;top:45%;animation-delay:-.45s}
+.r5{left:9%;bottom:4%;animation-delay:-.60s}
+.r6{right:9%;bottom:4%;animation-delay:-.75s}
+@keyframes reasonFloat{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(0,-8px,0)}
+}
+@keyframes shinReasonFloat{
+  0%,100%{margin-top:0}
+  50%{margin-top:-8px}
+}
+
+/* memories — clean Polaroid photos with individual push pins */
+.memory-gallery{
+  position:relative;
+  width:100%;
+  max-width:690px;
+  margin:14px auto 0;
+  padding:8px 4px 4px;
+}
+.memory-gallery:before{
+  content:"✿";
+  position:absolute;
+  left:8px;
+  top:-4px;
+  font-size:30px;
+  color:#d95b4e;
+  transform:rotate(-12deg);
+}
+.memory-gallery:after{
+  content:"✿";
+  position:absolute;
+  right:10px;
+  top:-2px;
+  font-size:29px;
+  color:#d95b4e;
+  transform:rotate(12deg);
+}
+.memories{
+  position:relative;
+  z-index:2;
+  margin-top:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  align-items:start;
+}
+.memory{
+  position:relative;
+  background:#fff;
+  padding:18px 8px 24px;
+  border:1px solid #eadfca;
+  box-shadow:0 7px 18px rgba(70,40,25,.17);
+  transform:rotate(var(--memory-rotate));
+  transform-origin:50% 12px;
+  animation:memoryHangIn .75s ease both;
+}
+.memory:nth-child(1){--memory-rotate:-5deg}
+.memory:nth-child(2){--memory-rotate:2deg;animation-delay:.12s}
+.memory:nth-child(3){--memory-rotate:-2deg;animation-delay:.24s}
+.memory:nth-child(4){--memory-rotate:5deg;animation-delay:.36s}
+.memory img{
+  width:100%;
+  height:142px;
+  object-fit:cover;
+  display:block;
+  border:0;
+}
+.memory:after{
+  content:"♥";
+  position:absolute;
+  left:50%;
+  bottom:1px;
+  transform:translateX(-50%);
+  font-size:19px;
+  line-height:1;
+  color:#d95b4e;
+  font-family:Arial,sans-serif;
+}
+
+/* Simple red push pin centered on every photo. */
+.pin{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#c93645;
+  border:2px solid #a92737;
+  box-shadow:0 3px 5px rgba(70,20,20,.28);
+  z-index:8;
+  font-size:0;
+  pointer-events:none;
+}
+.pin:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:11px;
+  width:5px;
+  height:9px;
+  transform:translateX(-50%);
+  background:#a92737;
+  border-radius:0 0 3px 3px;
+}
+@keyframes memoryHangIn{
+  from{
+    opacity:0;
+    transform:translateY(-45px) rotate(var(--memory-rotate));
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) rotate(var(--memory-rotate));
+  }
+}
+
+/* memory heading */
+.memory-title{
+  margin-bottom:4px;
+  font-size:clamp(34px,7vw,48px);
+}
+.memory-title span{
+  display:inline-block;
+  font-size:.65em;
+  margin-left:4px;
+  transform:rotate(-10deg);
+}
+.memory-subtitle{
+  font-size:15px;
+  margin-bottom:2px;
+}
+
+
+/* button sound feedback */
+.btn{ -webkit-tap-highlight-color:transparent }
+
+/* Memory photo hover + click popup */
+.memory{
+  cursor:pointer;
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.memory:hover{
+  transform:rotate(0deg) translateY(-8px) scale(1.035);
+  box-shadow:0 16px 30px rgba(70,40,25,.24);
+  z-index:20;
+}
+.memory img{
+  cursor:pointer;
+  transition:transform .35s ease, filter .35s ease;
+}
+.memory:hover img{
+  transform:scale(1.025);
+  filter:brightness(1.04);
+}
+
+/* Full-screen memory popup */
+.memory-popup{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(35,16,14,.72);
+  backdrop-filter:blur(7px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+.memory-popup.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.memory-popup-card{
+  position:relative;
+  max-width:min(680px,92vw);
+  max-height:88vh;
+  padding:12px;
+  background:#fffdf8;
+  border:5px solid #d95b4e;
+  border-radius:18px;
+  box-shadow:0 24px 70px rgba(0,0,0,.38);
+  transform:translateY(25px) scale(.82) rotate(-2deg);
+  opacity:0;
+  transition:transform .38s cubic-bezier(.2,.8,.2,1.2), opacity .25s ease;
+}
+.memory-popup.open .memory-popup-card{
+  transform:translateY(0) scale(1) rotate(0deg);
+  opacity:1;
+}
+.memory-popup-card img{
+  display:block;
+  max-width:calc(92vw - 34px);
+  max-height:calc(88vh - 55px);
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:8px;
+}
+.memory-popup-close{
+  position:absolute;
+  top:-17px;
+  right:-17px;
+  width:42px;
+  height:42px;
+  border:3px solid #fff;
+  border-radius:50%;
+  background:#bd3347;
+  color:#fff;
+  font-size:25px;
+  line-height:1;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,.25);
+  transition:transform .2s ease, background .2s ease;
+}
+.memory-popup-close:hover{
+  transform:scale(1.1) rotate(8deg);
+  background:#a92737;
+}
+.memory-popup-hint{
+  text-align:center;
+  margin-top:8px;
+  color:#8e2430;
+  font-size:14px;
+  font-weight:700;
+}
+@media(max-width:650px){
+  .memory-popup{padding:16px}
+  .memory-popup-card{padding:8px;border-width:4px}
+  .memory-popup-close{top:-14px;right:-14px;width:36px;height:36px;font-size:21px}
+  .memory-popup-hint{font-size:12px}
+}
+
+/* letter */
+.letter{text-align:left;max-width:650px;margin:auto;background:#fffdf1;border:1px solid #dbc99d;padding:38px 30px;line-height:2;font-size:18px;box-shadow:inset 0 0 35px rgba(160,120,50,.08),0 12px 30px rgba(60,35,25,.12);position:relative;overflow:hidden}.letter h3{color:#a92737;font-size:32px;margin-bottom:15px}.signature{text-align:right;color:#a92737;font-size:22px;font-weight:bold;margin-top:22px;position:relative;z-index:4;padding-right:82px}.flower{position:absolute;right:8px;bottom:4px;font-size:58px;z-index:1;opacity:.72;pointer-events:none}.hearts{font-size:30px;margin-top:18px;animation:pulse 1.1s infinite}@keyframes pulse{50%{transform:scale(1.18)}}
+/* floating hearts */
+.heart{position:fixed;z-index:20;pointer-events:none;font-size:24px;animation:heart 1.4s ease-out forwards}@keyframes heart{to{opacity:0;transform:translateY(-120px) scale(1.5) rotate(20deg)}}
+@media(max-width:650px){.card{padding:38px 16px;min-height:590px}.memory-gallery{max-width:440px;padding-top:8px}.memories{grid-template-columns:repeat(2,1fr);gap:18px 12px}.memory img{height:130px}.memory{padding:18px 7px 22px}.pin{top:-10px}.reasons{min-height:620px;display:block}.reasons .shin{position:absolute;left:50%;top:225px;width:165px;height:165px;margin:0 0 0 -82.5px}.reason{position:absolute;display:block;margin:0;white-space:normal;max-width:145px;text-align:center}.r1{left:0;top:2%}.r1:after{right:-85px;width:90px;transform:rotate(28deg)}.r2{right:0;top:10%}.r2:after{left:-85px;width:90px;transform:rotate(-28deg)}.r3{left:0;top:34%}.r3:after{right:-85px;width:90px;transform:rotate(8deg)}.r4{right:0;top:42%}.r4:after{left:-85px;width:90px;transform:rotate(-8deg)}.r5{left:0;bottom:4%}.r5:after{right:-90px;width:95px;transform:rotate(-25deg)}.r6{right:0;bottom:2%}.r6:after{left:-90px;width:95px;transform:rotate(25deg)}.letter{font-size:16px;padding:28px 20px}.signature{padding-right:70px}.flower{right:3px;bottom:2px;font-size:50px}.photo{width:190px;height:190px}}
+</style>
+</head>
+<body>
+
+<!--
+  This recreates the sequence and visual language of the uploaded video:
+  1 opening -> 2 NO prank -> 3 excited -> 4 gifts -> 5 greeting
+  -> 6 best sister award -> 7 memories -> 8 YOU ARE MY -> 9 letter.
+
+  The Shinchan GIFs below are loaded from GIPHY's official Shin chan account.
+  If you want a fully offline website, download the GIFs from the official
+  GIPHY pages and replace the remote URLs with local files.
+-->
+
+<section class="page active" id="p1"><div class="card"><div class="corner c1">🌸</div><div class="corner c2">✨</div><div class="corner c3">🌷</div><div class="corner c4">❤️</div><div class="inner">
+<img class="shin" src="https://media.giphy.com/media/icIr8rk03xQI6NS67S/giphy.gif" alt="Shinchan happy">
+<h1>I have made something for you</h1><p>Do you wanna see it? 👀</p>
+<button class="btn yes" onclick="go(3);hearts()">YES ❤️</button><button class="btn no" onclick="go(2)">NO 😒</button>
+</div></div></section>
+
+<section class="page" id="p2"><div class="card"><div class="inner">
+<h1>HOW DARE YOU?!</h1><img class="shin" src="https://media.giphy.com/media/S6wqh8AYhTLRiBP04Y/giphy.gif" alt="Shinchan angry"><p>You really clicked NO? 😭<br>Nice try. You're not escaping this surprise!</p>
+<button class="btn yes" onclick="go(1)">TRY AGAIN 😂</button>
+</div></div></section>
+
+<section class="page" id="p3"><div class="card"><div class="inner">
+<h1>Are You Really Excited?</h1><img class="shin" src="https://media.giphy.com/media/icIr8rk03xQI6NS67S/giphy.gif" alt="Shinchan excited"><p>Because I have prepared something special for you...</p>
+<button class="btn yes" onclick="go(4);hearts()">YES ❤️</button><button class="btn no" onclick="go(2)">NO 😭</button>
+</div></div></section>
+
+<section class="page" id="p4"><div class="card"><div class="inner">
+<h1>Each gift has something for you...</h1><div class="gifts">
+<div class="gift" onclick="openGift(this)"><div class="bow">🎀</div><div class="lid"></div><div class="box"><div class="ribbon-v"></div></div></div>
+<div class="gift" onclick="openGift(this)"><div class="bow">🎀</div><div class="lid"></div><div class="box"><div class="ribbon-v"></div></div></div>
+<div class="gift" onclick="openGift(this)"><div class="bow">🎀</div><div class="lid"></div><div class="box"><div class="ribbon-v"></div></div></div>
+</div><h2 class="script">CLICK ON 🎁</h2></div></div></section>
+
+<section class="page" id="p5"><div class="card"><div class="inner">
+<h1>Happy Rakshabandhan ❤️</h1>
+<!-- PUT YOUR SISTER'S PHOTO HERE: sister.jpg -->
+<img class="photo" src="sister.jpg" alt="Your sister photo" onerror="this.style.display='none'">
+<p>To my dearest <b>MUNDHARI DIDI &#x1F602</b>,<br><br>You are one of the most special people in my life. Thank you for every laugh, every fight, every memory and every little moment. ❤️</p>
+<button class="btn yes" onclick="go(6);hearts()">NEXT ❤️</button></div></div></section>
+
+<section class="page" id="p6"><div class="card award"><div class="inner">
+<h1>Best Sister Award</h1><div class="medal">🏅</div><p>This award is proudly presented to</p><div class="award-name">MANITA YADAV&#x1F602;</div><p>For being an amazing sister, best friend, partner in crime and forever family. ❤️</p>
+<button class="btn yes" onclick="go(7)">CONTINUE</button></div></div></section>
+
+<section class="page" id="p7"><div class="card"><div class="inner">
+<h1 class="memory-title">MEMORIES <span>♡</span></h1><p class="memory-subtitle">Some moments I will always treasure.</p><div class="memory-gallery"><div class="memories">
+<div class="memory"><div class="pin">📌</div><img src="memory1.jpg" alt="Memory 1"></div>
+<div class="memory"><div class="pin">📌</div><img src="memory2.jpg" alt="Memory 2"></div>
+<div class="memory"><div class="pin">📌</div><img src="memory3.jpg" alt="Memory 3"></div>
+<div class="memory"><div class="pin">📌</div><img src="memory4.jpg" alt="Memory 4"></div>
+</div></div><button class="btn yes" onclick="go(8)">NEXT 💕</button></div></div></section>
+
+<section class="page" id="p8"><div class="card"><div class="inner">
+<h1>YOU ARE ...</h1><div class="reasons">
+<div class="reason r1">Musarniya &#x1F602;</div><div class="reason r2">My Google &#x1F602;</div><div class="reason r3">My Entertainment 😂</div><div class="reason r4">Food Stealer 🍕</div><div class="reason r5">My Best Buddy &#x1F60E;</div><div class="reason r6">My Forever Sister 💕</div>
+<img class="shin" src="https://media.giphy.com/media/icIr8rk03xQI6NS67S/giphy.gif" alt="Shinchan">
+</div><button class="btn yes" onclick="go(9);hearts()">ONE LAST THING 💌</button></div></div></section>
+
+<section class="page" id="p9"><div class="card"><div class="inner"><div class="letter">
+<h3>To My Forever MUNDHARI DIDI &#x1F60E;</h3>
+<p>I'm so grateful to have you in my life.<br><br>Thank you for being my biggest supporter, my secret keeper, my partner in crime, and someone who can always make me smile.<br><br>Life feels brighter because you are a part of it.<br><br>I may not always say it, but I hope you always know how much you mean to me.<br><br>Happy Raksha Bandhan, my dear sister. ❤️</p>
+<div class="signature">With Love,<br>LALU YADAV &#x1F60E;</div><div class="flower">🌷</div></div><div class="hearts">❤️ ❤️ ❤️</div></div></div></section>
+
+
+<!-- Memory photo popup -->
+<div class="memory-popup" id="memoryPopup" aria-hidden="true">
+  <div class="memory-popup-card" role="dialog" aria-modal="true" aria-label="Memory photo">
+    <button class="memory-popup-close" type="button" aria-label="Close memory">×</button>
+    <img id="memoryPopupImage" src="" alt="Enlarged memory">
+    <div class="memory-popup-hint">Click outside to close ❤️</div>
+  </div>
+</div>
+
+<script>
+/* Click any memory photo/card to open an animated enlarged popup. */
+document.addEventListener('DOMContentLoaded',()=>{
+  const popup = document.getElementById('memoryPopup');
+  const popupImage = document.getElementById('memoryPopupImage');
+  const closeBtn = popup ? popup.querySelector('.memory-popup-close') : null;
+
+  if(!popup || !popupImage) return;
+
+  function openMemory(memory){
+    const img = memory.querySelector('img');
+    if(!img || !img.src) return;
+    popupImage.src = img.src;
+    popupImage.alt = img.alt || 'Enlarged memory';
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+
+  function closeMemory(){
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    setTimeout(()=>{
+      if(!popup.classList.contains('open')) popupImage.src='';
+    },300);
+  }
+
+  document.querySelectorAll('.memory').forEach(memory=>{
+    memory.addEventListener('click',(event)=>{
+      if(event.target.closest('.pin')) return;
+      openMemory(memory);
+    });
+  });
+
+  if(closeBtn) closeBtn.addEventListener('click',(event)=>{
+    event.stopPropagation();
+    closeMemory();
+  });
+
+  popup.addEventListener('click',(event)=>{
+    if(event.target === popup) closeMemory();
+  });
+
+  document.addEventListener('keydown',(event)=>{
+    if(event.key === 'Escape' && popup.classList.contains('open')) closeMemory();
+  });
+});
+
+
+function go(n){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById('p'+n).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function openGift(el){el.style.animation='shake .45s ease';setTimeout(()=>{go(5);hearts()},420)}
+function hearts(){for(let i=0;i<16;i++){const h=document.createElement('div');h.className='heart';h.textContent=['❤️','💖','💕','💗'][Math.floor(Math.random()*4)];h.style.left=(Math.random()*100)+'vw';h.style.top=(65+Math.random()*25)+'vh';h.style.animationDelay=(Math.random()*.35)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),1700)}}
+
+/* Lightweight button sound effects using the browser Web Audio API.
+   No external audio files are required. */
+let audioCtx = null;
+
+function getAudioContext(){
+  if(!audioCtx){
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if(!Ctx) return null;
+    audioCtx = new Ctx();
+  }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function tone(freq, duration, type='sine', volume=.045, delay=0){
+  const ctx = getAudioContext();
+  if(!ctx) return;
+  const now = ctx.currentTime + delay;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+  gain.gain.setValueAtTime(.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + .012);
+  gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(now);
+  osc.stop(now + duration + .02);
+}
+
+function playYesSound(){
+  tone(523.25,.12,'sine',.055,0);
+  tone(659.25,.14,'sine',.05,.10);
+  tone(783.99,.20,'sine',.045,.20);
+}
+
+function playExcitedSound(){
+  tone(440,.10,'triangle',.045,0);
+  tone(554.37,.10,'triangle',.045,.09);
+  tone(659.25,.14,'triangle',.05,.18);
+  tone(880,.22,'triangle',.045,.28);
+}
+
+function playNoSound(){
+  tone(240,.16,'sawtooth',.035,0);
+  tone(190,.22,'sawtooth',.03,.14);
+}
+
+function playGiftSound(){
+  tone(220,.08,'triangle',.035,0);
+  tone(330,.10,'triangle',.04,.08);
+  tone(494,.18,'sine',.045,.17);
+  tone(659.25,.24,'sine',.035,.30);
+}
+
+function playNextSound(){
+  tone(587.33,.10,'sine',.04,0);
+  tone(739.99,.16,'sine',.04,.10);
+}
+
+/* Attach sounds to the existing buttons without changing their navigation. */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.yes').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const text=(btn.textContent||'').toLowerCase();
+      if(text.includes('excited')) playExcitedSound();
+      else if(text.includes('yes')) playYesSound();
+      else if(text.includes('continue') || text.includes('next') || text.includes('one last')) playNextSound();
+      else playYesSound();
+    });
+  });
+
+  document.querySelectorAll('.no').forEach(btn=>{
+    btn.addEventListener('click',playNoSound);
+  });
+
+  document.querySelectorAll('.gift').forEach(gift=>{
+    gift.addEventListener('click',playGiftSound);
+  });
+});
+
+</script>
+</body>
+</html>
